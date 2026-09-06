@@ -8,6 +8,7 @@ import CONST from '@src/CONST';
 import IntlStore from '@src/languages/IntlStore';
 import ONYXKEYS from '@src/ONYXKEYS';
 import type {Policy, PolicyCategories, PolicyTagLists, Report, Transaction, TransactionViolation} from '@src/types/onyx';
+import type {SageIntacctExportConfig} from '@src/types/onyx/Policy';
 import type {TransactionCollectionDataSet} from '@src/types/onyx/Transaction';
 
 import Onyx from 'react-native-onyx';
@@ -3009,7 +3010,7 @@ describe('getViolationsOnyxData', () => {
             // Pass a `vendors` array to control the synced list, or `null` to simulate the list still
             // hydrating. Intacct vendors carry the display name in `value`.
             const policyWithIntacctVendorFeature = (
-                nonReimbursable: string = CONST.SAGE_INTACCT_NON_REIMBURSABLE_EXPENSE_TYPE.CREDIT_CARD_CHARGE,
+                nonReimbursable: SageIntacctExportConfig['nonReimbursable'] = CONST.SAGE_INTACCT_NON_REIMBURSABLE_EXPENSE_TYPE.CREDIT_CARD_CHARGE,
                 vendors: Array<{id: string; name: string; value: string}> | null = [{id: 'iv-active', name: 'V001', value: 'Acme Intacct'}],
             ) =>
                 createMock<Policy>({
