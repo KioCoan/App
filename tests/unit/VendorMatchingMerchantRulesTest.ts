@@ -63,7 +63,6 @@ const buildQBOWithVendorBillExportPolicy = (vendors: Array<{id: string; name: st
         }),
     });
 
-/** Xero policy whose supplier list scopes vendor matching to Xero (label flips vendor -> supplier). */
 /** Sage Intacct policy whose Credit Card Charge export scopes vendor matching to Intacct. */
 const buildIntacctPolicy = (vendors: Array<{id: string; name: string; value: string}>): Policy =>
     createMock<Policy>({
@@ -76,6 +75,7 @@ const buildIntacctPolicy = (vendors: Array<{id: string; name: string; value: str
         }),
     });
 
+/** Xero policy whose supplier list scopes vendor matching to Xero (label flips vendor -> supplier). */
 const buildXeroPolicy = (contacts: Record<string, {id: string; name: string; email: string}> | undefined): Policy =>
     createMock<Policy>({
         ...createRandomPolicy(0),
